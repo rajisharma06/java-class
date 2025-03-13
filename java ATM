@@ -1,0 +1,76 @@
+package prg2;
+
+import java.util.Scanner;
+
+abstract class ATM2{
+    double balance;
+    ATM2(double balance){
+        this.balance=balance;
+    }
+    abstract void withDraw(double amount);
+    abstract void deposit(double amount); // corrected method name
+    abstract void checkBalance(); // corrected method name
+}
+class SBI3 extends ATM2{
+    SBI3(double balance){
+        super(balance);
+    }
+    void withDraw(double amount) {
+        if(amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal success, available balance is: " + balance);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+    void deposit(double amount) { // corrected method name
+        if(amount > 0) {
+            balance += amount;
+            System.out.println("Deposit Success: available balance " + balance);
+        } else {
+            System.out.println("Invalid amount");
+        }
+    }
+    void checkBalance() { // corrected method name
+        System.out.println("Current balance: " + balance);
+    }
+}
+
+public class ATM_Abstraction {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        SBI3 obj = new SBI3(1000);
+        while(true) {
+            System.out.println("===ATM MENU====");
+            System.out.println("1. Withdraw");
+            System.out.println("2. Deposit");
+            System.out.println("3. Check balance");
+            System.out.println("4. Exit");
+            
+            System.out.println("Enter your choice:");
+            int choice = s.nextInt();
+            
+            switch(choice) {
+                case 1:
+                    System.out.println("Enter amount to withdraw:");
+                    double with_amt = s.nextDouble();
+                    obj.withDraw(with_amt);
+                    break;
+                case 2:
+                    System.out.println("Enter amount to deposit:");
+                    double depo_amt = s.nextDouble();
+                    obj.deposit(depo_amt);
+                    break;
+                case 3:
+                    obj.checkBalance();
+                    break;
+                case 4:
+                    System.out.println("Thank you for using ATM services");
+                    s.close();
+                    return; // break out of the loop
+                default:
+                    System.out.println("Invalid choice, please try again.");
+            }
+        }
+    }
+}
