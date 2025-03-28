@@ -1,0 +1,40 @@
+package prg1java;
+
+public class multiple_exceptions {
+	public static void main(String[] args) {
+
+			
+			        try {
+			           
+			            int div = 10 / 0;
+
+			           
+			            int[] numbers = {1, 2, 3, 4, 5};
+			            System.out.println("My numbers: " + numbers[10]);
+
+			           
+			            String name = "Raji";
+			            System.out.println("My name: " + name.charAt(15));
+
+			            String a = null;
+			            System.out.println("My string: " + a.length());
+
+			        } catch (ArithmeticException e) {
+			            System.out.println("My First " + e);
+			        } catch (ArrayIndexOutOfBoundsException e) {
+			            System.out.println("My second" + e);
+			        } catch (StringIndexOutOfBoundsException e) {
+			            System.out.println("My Third" + e);
+			        } catch (NullPointerException e) {
+			            System.out.println("my fourth " + e);
+			        } catch (Exception e) {  
+			            System.out.println("General Exception: " + e);
+			        }
+			        
+			        System.out.println("my four errors sloved.");
+			    }
+			}
+		}
+	}
+
+}
