@@ -1,0 +1,16 @@
+package prg1java;
+import java.util.Set;
+import java.util.HashSet;
+public class sets {
+ public static void main(String[] args) {
+	 Set<String> gods=new HashSet<>();
+	 System.out.println("My Empty Set:"+gods);
+	 
+	 gods.add("Lord Venkateswara");
+     gods.add("Lord mahadev");
+     gods.add("Lord Ayyappa");
+     gods.add("Goddess Meenakshi");
+     gods.add("Lord vishnu");
+     System.out.println("My Set of Indian Gods: " + gods);
+ }
+}
